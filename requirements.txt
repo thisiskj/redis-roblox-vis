@@ -1,0 +1,14 @@
+# Redis Roblox Visualizer Dependencies
+# Core API framework
+fastapi>=0.104.0
+
+# ASGI server for FastAPI
+uvicorn[standard]>=0.24.0
+
+# Redis client library
+redis>=5.0.0
+
+# Optional: For development and testing
+# pytest>=7.4.0
+# black>=23.0.0
+# flake8>=6.0.0

@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redis-roblox-viz"
+version = "1.0.0"
+description = "A real-time 3D visualization tool that displays Redis keyspace data as interactive blocks in Roblox"
+authors = [{name = "Redis Roblox Visualizer Contributors"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["redis", "roblox", "visualization", "3d", "fastapi"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database :: Front-Ends",
+    "Topic :: Games/Entertainment",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "redis>=5.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-username/redis-roblox-viz"
+Repository = "https://github.com/your-username/redis-roblox-viz"
+Issues = "https://github.com/your-username/redis-roblox-viz/issues"
+
+[project.scripts]
+redis-roblox-viz = "redis_roblox_viz.main:main"
+demo-data = "redis_roblox_viz.scripts.demo_data_generator:main"
+bicycle-data = "redis_roblox_viz.scripts.bicycle_data_generator:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["redis_roblox_viz*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
